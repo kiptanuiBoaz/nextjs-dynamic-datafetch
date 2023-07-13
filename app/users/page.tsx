@@ -21,7 +21,7 @@ const UsersPage = async () => {
 
             {users.map(user => <>
                 <p key={user.id}>
-                    <Link href={`user/${user.id}`}>{user.name}</Link>
+                    <Link href={`users/${user.id}`}>{user.name}</Link>
                 </p>
             </>)}
         </section>)

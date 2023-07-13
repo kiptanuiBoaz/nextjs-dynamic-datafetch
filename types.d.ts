@@ -2,6 +2,18 @@ interface LayoutChildrenIterface {
     children: React.ReactNode
 }
 
+type Params ={
+    params:{
+        userId:string;
+    }
+}
+type Post = {
+    "userId": number,
+    "id": number,
+    "title": string,
+    "body": string,
+}
+
 type User = {
     "id": number,
     "name": string,
