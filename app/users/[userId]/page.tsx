@@ -26,6 +26,7 @@ export default async function UserPage({ params: { userId } }: Params) {
     const userPostsData: Promise<Post[]> = getUserPosts(userId)
 
     // If not progressively rendering with Suspense, use Promise.all
+    // this avoids waterfall
     //const [user, userPosts] = await Promise.all([userData, userPostsData])
 
     const user = await userData
@@ -34,8 +35,9 @@ export default async function UserPage({ params: { userId } }: Params) {
         <>
             <h2>{user.name}</h2>
             <br />
+            {/* use loadng UI */}
             <Suspense fallback={<h2>Loading...</h2>}>
-  
+
                 <UserPosts promise={userPostsData} />
             </Suspense>
         </>
